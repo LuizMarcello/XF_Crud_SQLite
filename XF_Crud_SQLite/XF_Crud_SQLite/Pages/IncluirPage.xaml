@@ -1,12 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XF_Crud_SQLite.Pages.IncluirPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+             x:Class="XF_Crud_SQLite.Pages.IncluirPage"
+             Title="Incluir novo usuário">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0"/>
+    </ContentPage.Padding>
+
+    <StackLayout>
+        <TableView x:Name="tbvwUsuario" Intent="Form">
+            <TableRoot Title="DataForm">
+                <TableSection Title="nformação Pessoal">
+                    <EntryCell x:Name="txtNome" Label="Nome" Text="{Binding Nome}"
+                               Placeholder="Informe o nome" Keyboard="Text"/>
+                    <EntryCell x:Name="txtEmail" Label="Email" Text="{Binding Email}"
+                               Placeholder="Informe o email" Keyboard="Email"/>
+                    <SwitchCell x:Name="bAtivo" Text="Usuario Ativo ?" On="{Binding Ativo}"/>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button Text="Incluir" Clicked="Salvar_Clicked"/>
+            <Button Text="Cancelar" Clicked="Cancelar_Clicked"/>
         </StackLayout>
-    </ContentPage.Content>
+    </StackLayout>
+    
 </ContentPage>
