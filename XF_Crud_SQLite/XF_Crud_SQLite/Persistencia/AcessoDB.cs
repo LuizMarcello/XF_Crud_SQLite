@@ -67,7 +67,7 @@ namespace XF_Crud_SQLite.Persistencia
         }
         public void Dispose()
         {
-           
+            db.Dispose();
         }
     }
 }

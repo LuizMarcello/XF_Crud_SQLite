@@ -1,12 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XF_Crud_SQLite.Pages.CadastroPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             x:Class="XF_Crud_SQLite.Pages.CadastroPage"
+             Title="Cadastro de Usuários">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Novo" IconImageSource="" Activated="Novo_Activated"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <SearchBar Placeholder="Procurar..." BackgroundColor="Yellow"
+                   TextChanged="SearchBar_TextChanged"/>
+
+        <ListView x:Name="lvwUsuarios">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Nome}" Detail="{Binding Email}"
+                              TextColor="Black" DetailColor="Silver">
+                        <TextCell.ContextActions>
+                            <MenuItem Text="Alterar" Clicked="Alterar_Clicked"
+                                      CommandParameter="{Binding .}"/>
+                            <MenuItem Text="Deletar" Clicked="Deletar_Clicked"
+                                      IsDestructive="True"
+                                      CommandParameter="{Binding .}"/>
+                        </TextCell.ContextActions>
+                    </TextCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+    
 </ContentPage>
+
+    

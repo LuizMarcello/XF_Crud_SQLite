@@ -9,6 +9,7 @@ namespace XF_Crud_SQLite
     public partial class App : Application
     {
         static AcessoDB dbContext;
+        //private static AcessoDB dbContext;
 
         public static AcessoDB DataBase
         {
